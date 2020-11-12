@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//we need to override specific routes from Fortify
+Route::get('/login', 'IndexController@index');
+Route::get('/register', 'IndexController@index');
 
-
-Route::get('/', 'IndexController@index');
+Route::get('/{path?}', 'IndexController@index')->name('index')->where('path', '.*'); //zero or more of anything
